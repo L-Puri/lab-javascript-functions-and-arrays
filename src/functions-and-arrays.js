@@ -1,21 +1,57 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
+function maxOfTwoNumbers(num1, num2) {
+  if(num1 > num2) {
+    return num1;
+  }else {
+    return num2;
+  }
+}
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  let result = '';
+  for (let i = 0; i < arr.length; i++) {
+    let currentItem = arr[i];
+    if(currentItem.length > result.length) {
+      result = arr[i];
+    }
+  }
+    return result;
+}
 
+console.log(findLongestWord(words));
+
+
+// findLongestWord("The quick brown fox jumped over the lazy dog");
+function findLongestWord(text) {
+return text
+.split(/\s+/g)
+.reduce(function (record, word) {
+  if (word.length > record.length) {                  
+    record = word;
+  }
+  return record;
+}, '');
+}
+
+console.log(findLongestWord("The quick brown fox jumped over the lazy dog"));
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+let sum = 0;
+function sumNumbers() {
+  for(let i =0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
+}
 
-
+console.log(sumNumbers(numbers));
 
 // Iteration #3.1 Bonus:
 function sum() {}
@@ -26,7 +62,24 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+
+function averageNumbers(array) {
+  let total = 0;
+  if(array.length === 0) {
+    return null;
+  }
+for (let i = 0; i < array.length; i += 1) {
+  total += array[i];
+}
+  total = total / array.length;
+console.log(total/array.length);
+  return total;
+}
+
+averageNumbers(numbersAvg);
+
+
+
 
 
 // Level 2: Array of strings
@@ -52,7 +105,18 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  const res = [];
+  for(let i = 0; i < arr.length; i++){
+    if(arr.lastIndexOf(arr[i]) !== arr.indexOf(arr[i])){
+        continue;
+    };
+    res.push(arr[i]);
+  };
+  return res;
+}
+
+console.log(uniquifyArray(wordsUnique));
 
 
 
@@ -78,9 +142,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr) {
+  const res = [];
+  for(let i = 0; i < arr.length; i++){
+    if(arr.lastIndexOf(arr[i]) !== arr.indexOf(arr[i])){
+        continue;
+    };
+    res.push(arr[i]);
+  };
+  return res;
+};
 
-
+console.log(howManyTimes(wordsCount));
 
 // Iteration #8: Bonus
 const matrix = [
